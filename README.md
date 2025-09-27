@@ -10,3 +10,6 @@ Sidebar filters for easy data exploration
  Dark theme with colorful graphs
  Quick stats using Pandas and NumPy
  Data preview and summary
+Live App
+
+This Streamlit app is deployed and can be accessed online:
