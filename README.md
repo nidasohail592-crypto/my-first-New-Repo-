@@ -13,3 +13,4 @@ Sidebar filters for easy data exploration
 Live App
 
 This Streamlit app is deployed and can be accessed online:
+https://nc3kfxboyjbp4ctm5hlcl5.streamlit.app/
