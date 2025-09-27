@@ -1,6 +1,4 @@
-# app.py
-# Streamlit ODI Match Dashboard
-# Made with ❤️ using Pandas, Numpy, and Plotly
+
 
 import streamlit as st
 import pandas as pd
@@ -8,9 +6,7 @@ import numpy as np
 import plotly.express as px
 
 
-# ===============================
-# Page Config
-# ===============================
+
 st.set_page_config(
     page_title="ODI Match Dashboard",
     page_icon="🏏",
@@ -18,10 +14,8 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# ===============================
-# Styling for Attractive Look
-# ===============================
-page_bg = """
+
+
 <style>
 [data-testid="stAppViewContainer"] {
     background: linear-gradient(to right, #74ebd5, #9face6);
@@ -34,9 +28,7 @@ page_bg = """
 """
 st.markdown(page_bg, unsafe_allow_html=True)
 
-# ===============================
-# Load Data
-# ===============================
+
 df = pd.read_csv("ODI_Match_info.csv")
 
 # Handle missing values
@@ -62,24 +54,20 @@ chart_type = st.sidebar.radio(
     ("Bar Chart", "Pie Chart", "Line Chart", "Scatter Plot")
 )
 
-# ===============================
-# Main Page
-# ===============================
+
 st.title("🏏 ODI Match Dashboard")
 st.subheader("Explore ODI Match Data with Pandas, Numpy, and Plotly 🎨")
 
 st.write("### Sample Data Preview")
 st.dataframe(filtered_df.head(20))
 
-# ===============================
-# Basic Calculations (Numpy + Pandas)
-# ===============================
+
 st.write("### 📊 Quick Match Stats")
 
 st.write(f"Total Rows: {len(filtered_df)}")
 st.write(f"Columns: {list(filtered_df.columns)}")
 
-# Example numeric stats (if numeric cols exist)
+
 numeric_cols = filtered_df.select_dtypes(include=np.number).columns.tolist()
 if numeric_cols:
     col = numeric_cols[0]
@@ -87,9 +75,7 @@ if numeric_cols:
     st.write(f"Max of {col}: {np.max(filtered_df[col])}")
     st.write(f"Min of {col}: {np.min(filtered_df[col])}")
 
-# ===============================
-# Plotly Graphs
-# ===============================
+
 st.write("### 🎨 Interactive Charts")
 
 if chart_type == "Bar Chart":
@@ -107,8 +93,7 @@ elif chart_type == "Scatter Plot":
 
 st.plotly_chart(fig, use_container_width=True)
 
-# ===============================
-# Extra Summary
-# ===============================
+
 st.write("### 📝 Data Summary")
 st.write(filtered_df.describe(include="all"))
+
